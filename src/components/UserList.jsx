@@ -1,6 +1,10 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 function User({ user, onRemove, onToggle }) {
+  useEffect(() => {
+    console.log(user);
+  },  [user]);
+
     return (
       <div>
         <b style={{
@@ -10,7 +14,8 @@ function User({ user, onRemove, onToggle }) {
         onClick={() => onToggle(user.id)}
         >
           {user.username}
-          </b>
+        </b>
+          &nbsp;
            <span>({user.email})</span>
         <button onClick={() => onRemove(user.id)}>삭제</button>
       </div>
@@ -41,7 +46,14 @@ function UserList({users, onRemove, onToggle}) {
     */
     <>
         {users.map(item => (
-            <User user={item} key={item.id} onRemove={onRemove} onToggle={onToggle}></User>
+            <User 
+              user={item} 
+              key={item.id} 
+              onRemove={onRemove} 
+              onToggle={onToggle}
+              >
+
+            </User>
 
         ))}
     </>

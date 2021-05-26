@@ -7,9 +7,6 @@ function CreateUser({ username, email, onChange, onCreate }) {
     //console.log(onChange);
     //console.log(onCreate);
 
-    console.log(username);
-    console.log(email);
-
     return (
 
     <div>
